@@ -1,0 +1,38 @@
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+}
+
+description = "FTPVault.io API sample"
+
+
+task runnable(type: Jar) {
+    manifest {
+        attributes('Main-Class': 'io.ftpvault.apisample.Main')
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+
+tasks.withType(JavaExec) {
+    jvmArgs = ['-Xms1g', '-Xmx4g']
+}
+
+
+task run(dependsOn:runnable) {
+    doLast {
+        javaexec { main="-jar"; args jar.archivePath } 
+    }
+}
+
+
+dependencies {
+    compile 'commons-cli:commons-cli:1.4'
+    compile 'org.json:json:20180130'
+    compile 'org.apache.httpcomponents:httpclient:4.5.10'
+    compile 'org.apache.httpcomponents:httpmime:4.5.10'
+}
