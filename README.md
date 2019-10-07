@@ -23,7 +23,10 @@ class C {
 
 Visit https://ftpvault.io/api/ to create API username and password, you must be logged in.
 
-Example run:
+Example build and run:
+```
+gradle runnable
 java -jar ftpvault-apisample.jar -w -e -f my-file-to-upload.txt
+```
 
 The full API documentation is available at https://ftpvault.io/support/api-rest-home/
