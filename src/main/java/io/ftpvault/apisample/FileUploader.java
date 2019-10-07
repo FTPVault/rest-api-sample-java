@@ -1,11 +1,3 @@
-package io.ftpvault.apisample;
-
-import java.io.File;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
 /**
 * Author   Carsten Peter Viggo Rasmussen / cpr@gnusys.dk
 * Version  1.0
@@ -37,6 +29,15 @@ import org.apache.http.entity.ContentType;
 * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 * IN THE SOFTWARE.
 */
+
+package io.ftpvault.apisample;
+
+import java.io.File;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.BasicResponseHandler;
