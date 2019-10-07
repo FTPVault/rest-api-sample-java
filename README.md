@@ -1,6 +1,6 @@
 # FTPVault.io REST API Java sample code
 
-This project shows how to upload a file to the https://ftpvault.io/ cloud storage using our REST API in a small Java application.
+This project shows how to upload a file to the https://ftpvault.io/ cloud storage using our REST API in a small Java application. Using the REST API it is possible to use https://ftpvault.io/ as a generic highly available and scalable managed cloud storage service, without having to implement or embed FTP libraries in your project.
 The code is not intentet to be production ready, but serve as a guide on how to get started.
 
 Out of the box, this sample code will :
