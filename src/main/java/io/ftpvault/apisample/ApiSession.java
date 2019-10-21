@@ -44,6 +44,7 @@ class ApiSession {
     private final String username;
     private final String password;
     private String sessionToken;
+    private long sessionExpires;
 
 
     public ApiSession(String accessToken, String username, String password){
@@ -51,6 +52,7 @@ class ApiSession {
         this.username = username;
         this.password = password;
         sessionToken = null;
+        sessionExpires = 0;
     }
 
 
@@ -75,6 +77,7 @@ class ApiSession {
 
             if(jsonSessionWrapper.has("session") && jsonSessionWrapper.getJSONObject("session").has("sessionToken")){
                 sessionToken = jsonSessionWrapper.getJSONObject("session").getString("sessionToken");
+                sessionExpires = jsonSessionWrapper.getJSONObject("session").getLong("expiresTimestamp");
             }
         }catch(Exception ex){
             ex.printStackTrace();
@@ -83,7 +86,9 @@ class ApiSession {
 
 
     public boolean hasSessionToken(){
-        if(sessionToken != null && sessionToken.length() > 0){
+        long currentUnixTime = System.currentTimeMillis()/1000;
+
+        if(sessionToken != null && currentUnixTime < sessionExpires){
             return true;
         }else{
             return false;
